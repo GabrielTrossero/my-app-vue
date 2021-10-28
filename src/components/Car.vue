@@ -2,7 +2,20 @@
   <h2>Coche</h2>
   <p>Marca: {{ brand }}</p>
   <p>Modelo: {{ model }}</p>
-  <p>color: {{ color[1] }}</p>
+  <p>Color:</p>
+  <!-- Uso como índice al propio color, pero si uno se repite, ya no sería único
+  <ul>
+    <li v-for="color in colors" :key="color">
+      {{ color }}
+    </li>
+  </ul>
+  -->
+  <ul>
+    <!-- Genero un índice único -->
+    <li v-for="(color, index) in colors" :key="index">
+      {{ index + ": " + color }}
+    </li>
+  </ul>
   <p>Precio: {{ price }}</p>
   <p>Potencia: {{ power }}</p>
   <p>Datos: {{ messaje.title + " - " + messaje.description }}</p>
@@ -29,7 +42,7 @@ export default {
   setup() {
     const brand = "Audi";
     const model = "A4";
-    const color = ["Azul", "Rojo", "Negro"];
+    const colors = ["Azul", "Rojo", "Negro"];
     const price = 39000;
     const power = 250;
     const messaje = {
@@ -40,7 +53,7 @@ export default {
     return {
       brand,
       model,
-      color,
+      colors,
       price,
       power,
       messaje,

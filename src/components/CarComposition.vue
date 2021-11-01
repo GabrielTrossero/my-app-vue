@@ -1,4 +1,6 @@
 <!-- Version 3 Vue-->
+<!-- Archivo para ver la diferencia de la estructura entre
+    un archivo de la version 2 y la 3 -->
 <template>
   <h2>Coche - Composition API</h2>
   <p>Marca: {{ brand }}</p>
@@ -9,7 +11,7 @@
 </template>
 
 <script>
-//Uso el ref para poder modificar el valor de power
+//ref me sirve para que el valor de power cambie dinamicamente en la vista
 import { ref } from "vue";
 
 export default {

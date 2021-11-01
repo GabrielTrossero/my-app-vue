@@ -4,6 +4,11 @@
   <p>Marca: {{ brand }}</p>
   <p>Modelo: {{ model }}</p>
   <p>Potencia: {{ power }}</p>
+
+  <!-- LLamo directamente a la función del componente App -->
+  <button @click="upPower">Aumentar</button>
+
+  <button @click="modifyDownPower">Disminuir</button>
 </template>
 
 <script>
@@ -13,6 +18,8 @@ export default {
       type: Number,
       default: 250, //si no recibo nada, seteo que sea 250
     },
+    upPower: Function,
+    downPower: Function,
   },
 
   setup(props) {
@@ -21,9 +28,15 @@ export default {
 
     console.log(props.power);
 
+    const modifyDownPower = () => {
+      props.downPower(); //función definida en componente App
+      console.log("La potencia se disminuyó");
+    };
+
     return {
       brand,
       model,
+      modifyDownPower,
     };
   },
 };

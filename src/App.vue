@@ -13,10 +13,14 @@ export default {
   },
 
   setup() {
+    /*Aclaración: ref retorna un objeto, y es por eso que dentro del script tengo que acceder
+      a los valores con .value (power.value en este caso).
+      Luego en el template ya no es necesario utilizarlo de esta forma. Simplemente ponemos power.
+    */
     let power = ref(200);
 
     const upPower = () => {
-      power.value++;
+      power.value++; //dentro del s
     };
 
     const downPower = () => {
